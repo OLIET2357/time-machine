@@ -13,5 +13,5 @@ if [ ! -e "$1" ]; then
         exit 1
 fi
 
-bbe -b "28:/$BSYS/" -e "s/$BOLD/$BNEW/" "$1" -o "$1_patched"
-
+bbe -b "28:/$BSYS/" -e "s/$BOLD/$BNEW/" "$1" |
+bbe -e "s/$BSYS\\xC3/$BNEW/" -o "$1_patched"
