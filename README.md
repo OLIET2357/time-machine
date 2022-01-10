@@ -9,11 +9,15 @@ If it works, you are lucky.
 
 # How to use
 
+`sudo apt install bbe -y`
+
 `chmod +x tm.sh`
 
-`./tm.sh [BIN]`
+`./tm.sh BIN [TIME]`
 
-This runs binary as unix epoch time (1970/01/01)
+This runs binary as specified unix time.
+
+When time is omitted, use epoch time (1970/01/01).
 
 # Worked on
 
@@ -25,6 +29,8 @@ Linux DESKTOP-***** 4.4.0-19041-Microsoft #1237-Microsoft Sat Sep 11 14:32:00 PS
 ```
 
 Also 64bit ELF Binary Linuxes?
+
+# Those below processes are no longer needed
 
 # What to do
 
