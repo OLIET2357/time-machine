@@ -43,6 +43,7 @@ elif echo "$TYPE" | grep 'statically linked' >/dev/null; then
 	else
 		"$DIR"/patcher.sh "$1" "$2"
 	fi
+	chmod +x "${BIN}_patched"
 	if [ -z "$3" ]; then
 		"${BIN}_patched"
 	else
