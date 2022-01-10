@@ -9,7 +9,7 @@ BOLD="$(printf '%s' "$OLD" | sed 's/ /\\x/g')"
 BNEW="$(printf '%s' "$NEW" | sed 's/ /\\x/g')"
 
 if [ ! -e "$1" ]; then
-        printf 2>&1 '%s [FILE]\n' "$0"
+        printf >&2 '%s [FILE]\n' "$0"
         exit 1
 fi
 
