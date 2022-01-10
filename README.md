@@ -7,6 +7,14 @@ This is an _EXPERIMENTAL_ tool.
 
 If it works, you are lucky.
 
+# How to use
+
+`chmod +x tm.sh`
+
+`./tm.sh [BIN]`
+
+This runs binary as unix epoch time (1970/01/01)
+
 ## Worked on
 
 64bit Ubuntu WSL
