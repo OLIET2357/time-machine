@@ -6,7 +6,7 @@ if [ ! -e "$1" ]; then
 fi
 
 BIN="$1"
-if echo "$1" | grep -E '^[^/]+$'; then
+if echo "$1" | grep -E '^[^/]+$' >/dev/null; then
 	BIN=./"$1"
 fi
 
