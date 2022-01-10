@@ -5,9 +5,14 @@ if [ ! -e "$1" ]; then
 	exit 1
 fi
 
+BIN="$1"
+if echo "$1" | grep -E '^[^/]+$'; then
+	BIN=./"$1"
+fi
+
 DIR=$(dirname "$0")
 
-TYPE=$(file "$1")
+TYPE=$(file "$BIN")
 
 if echo "$TYPE" | grep 'ELF 64-bit' >/dev/null; then
 	:
@@ -24,26 +29,26 @@ if echo "$TYPE" | grep 'dynamically linked' >/dev/null; then
 		make >&2 -C "$DIR" CFLAGS=-DTIME="$2"
 	fi
 	if [ -z "$3" ]; then
-		env LD_PRELOAD=$DIR/hook.so ./$1
+		env LD_PRELOAD="$DIR"/hook.so "$BIN"
 	else
 		echo
 		echo 'Execute This'
-		echo "env LD_PRELOAD=$DIR/hook.so ./$1"
+		echo "env LD_PRELOAD=$DIR/hook.so ./$BIN"
 	fi
 elif echo "$TYPE" | grep 'statically linked' >/dev/null; then
 	echo >&2 'Patching'
 	chmod +x "$DIR"/patcher.sh
 	if [ -z "$2" ]; then
-		./"$DIR"/patcher.sh "$1"
+		"$DIR"/patcher.sh "$BIN"
 	else
-		./"$DIR"/patcher.sh "$1" "$2"
+		"$DIR"/patcher.sh "$1" "$2"
 	fi
 	if [ -z "$3" ]; then
-		./$1_patched
+		"${BIN}_patched"
 	else
 		echo
 		echo 'Execute This'
-		echo "./$1_patched"
+		echo "${BIN}_patched"
 	fi
 else
 	echo >&2 'Unknown Type'
