@@ -5,7 +5,7 @@ hook or patch linux binaries to run as if they were on a specified date
 
 This is an _EXPERIMENTAL_ tool.
 
-if it works, you are lucky.
+If it works, you are lucky.
 
 ## Worked on
 
@@ -39,7 +39,7 @@ show_time_dynamic: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynam
 show_time_static:  ELF 64-bit LSB executable, x86-64, version 1 (GNU/Linux), statically linked, ...
 ```
 
-Both of them show now date.
+Both of them show current date.
 
 ## Dynamically linked binary
 
@@ -79,13 +79,13 @@ change `NEW` variable of `patcher.sh` in little endian
 
 `NEW=' 48 C7 C0 80 43 6D 38 C3'`
 
-Don't forget to add a space at first.
+Don't forget to add a space at beginning.
 
 # How It works
 
 The patcher rewrite `time` function to just return immediate value EVEN IF STRIPED.
 
-There are another functions to get time such as `clock_gettime`, currently not supported.
+There are other functions to get time such as `clock_gettime`, currently not supported.
 
 # References
 
