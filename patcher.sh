@@ -35,4 +35,4 @@ fi
 
 bbe -b "28:/$BSYS/" -e "s/$BOLD/$BNEW/" "$1" |
 bbe -e "s/$BSYS\\xC3/$BNEW/" |
-bbe -b "28:/$BSYS32/" -e "s/$BOLD32/$BNEW32" -o "$1_patched"
+bbe -b "28:/$BSYS32/" -e "s/$BOLD32/$BNEW32/" -o "$1_patched"
