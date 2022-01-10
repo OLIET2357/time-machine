@@ -14,10 +14,10 @@ DIR=$(dirname "$0")
 
 TYPE=$(file "$BIN")
 
-if echo "$TYPE" | grep 'ELF 64-bit' >/dev/null; then
+if echo "$TYPE" | grep 'ELF' >/dev/null; then
 	:
 else
-	echo >&2 'FILE is not ELF 64-bit binary'
+	echo >&2 'FILE is not ELF binary'
 	exit 1
 fi
 
