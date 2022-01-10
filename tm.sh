@@ -33,7 +33,7 @@ if echo "$TYPE" | grep 'dynamically linked' >/dev/null; then
 	else
 		echo
 		echo 'Execute This'
-		echo "env LD_PRELOAD=$DIR/hook.so ./$BIN"
+		echo "env LD_PRELOAD=$DIR/hook.so $BIN"
 	fi
 elif echo "$TYPE" | grep 'statically linked' >/dev/null; then
 	echo >&2 'Patching'

@@ -1,4 +1,5 @@
 # time-machine
+
 hook or patch linux binaries to run as if they were on a specified date
 
 # IMPORTANT
@@ -28,9 +29,31 @@ When time is omitted, use epoch time (1970/01/01).
 ```
 $ uname -a
 Linux DESKTOP-***** 4.4.0-19041-Microsoft #1237-Microsoft Sat Sep 11 14:32:00 PST 2021 x86_64 x86_64 x86_64 GNU/Linux
+$ ldd show_time_dynamic
+        linux-vdso.so.1 (0x00007fffefd83000)
+        libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007fc5a9c10000)
+        /lib64/ld-linux-x86-64.so.2 (0x00007fc5a9e24000)
+$ ls -l /lib/x86_64-linux-gnu/libc.so.6
+lrwxrwxrwx 1 root root 12 Dec 16  2020 /lib/x86_64-linux-gnu/libc.so.6 -> libc-2.31.so
+```
+
+Amazon Linux 2 AWS
+
+```
+$ uname -a
+Linux ip-**-***-**-*.us-east-2.compute.internal 5.10.75-79.358.amzn2.x86_64 #1 SMP Thu Nov 4 21:08:30 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux
+$ ldd show_time_dynamic
+        linux-vdso.so.1 (0x00007ffd299b3000)
+        libc.so.6 => /lib64/libc.so.6 (0x00007f0a1e544000)
+        /lib64/ld-linux-x86-64.so.2 (0x00007f0a1e8ef000)
+$ ls -l /lib64/libc.so.6
+lrwxrwxrwx 1 root root 12 Dec  1 18:20 /lib64/libc.so.6 -> libc-2.26.so
+
 ```
 
 Also 64bit ELF Binary Linuxes?
+
+The common points are x86-64 && libc.so.6.
 
 # Those below processes are no longer needed
 

@@ -8,7 +8,8 @@ if [ -n "$2" ]; then
 	OPE=$(echo "$2" | 
 	awk '{
 		t=$1*1
-		printf "%02X %02X %02X %02X",t%0x100,int(t/0x100)%0x100,int(t/0x10000)%0x100,int(t/0x1000000)%0x100
+		printf "%02X %02X %02X %02X",t%0x100,int(t/0x100)%0x100 \
+					int(t/0x10000)%0x100,int(t/0x1000000)%0x100
 		}'
 	)
 	NEW=" 48 C7 C0 $OPE C3"
