@@ -12,7 +12,7 @@ if [ -n "$2" ]; then
 					int(t/0x10000)%0x100,int(t/0x1000000)%0x100
 		}'
 	)
-	NEW=" 48 C7 C0 $OPE C3"
+	NEW=" 48 C7 C0 $OPE C3" # mov rax,$OPE; ret
 fi
 
 BSYS="$(printf '%s' "$SYS" | sed 's/ /\\x/g')"
